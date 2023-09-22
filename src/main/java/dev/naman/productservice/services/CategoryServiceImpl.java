@@ -1,11 +1,14 @@
 package dev.naman.productservice.services;
 
-import dev.naman.productservice.models.Category;
-import dev.naman.productservice.models.Product;
+import dev.naman.productservice.dtos.CategoryDto;
+import dev.naman.productservice.dtos.GenericProductDto;
 import dev.naman.productservice.repositories.CategoryRepository;
 import dev.naman.productservice.repositories.ProductRepository;
+import dev.naman.productservice.models.Category;
+import dev.naman.productservice.models.Product;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +41,8 @@ public class CategoryServiceImpl implements CategoryService {
 
         return category;
     }
+
+
 
     public List<String> getProductTitles(List<String> categoryUUIDs) {
         List<UUID> uuids = new ArrayList<>();
@@ -75,5 +80,18 @@ public class CategoryServiceImpl implements CategoryService {
         }
 
         return titles;
+    }
+
+    @Override
+    public List<String> getAllCategories() {
+        List<Category> categories = categoryRepository.findAll();
+        List<String> categoryNames = new ArrayList<>();
+
+        for (Category category : categories) {
+            categoryNames.add(category.getName());
+            return null;
+        }
+
+        return categoryNames;
     }
 }

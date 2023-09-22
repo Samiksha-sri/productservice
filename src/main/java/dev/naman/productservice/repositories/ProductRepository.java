@@ -1,32 +1,26 @@
 package dev.naman.productservice.repositories;
 
+import dev.naman.productservice.dtos.GenericProductDto;
 import dev.naman.productservice.models.Category;
 import dev.naman.productservice.models.Product;
-import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Function;
 
 @Repository
 public interface ProductRepository
 extends JpaRepository<Product, UUID> {
 
+    @Override
+    List<Product> findAll();
+
     Product findByTitleEquals(String title);
 
-    Product findByTitleEqualsAndPrice_PriceOrderByPrice_price(String title, double price);
-
-    List<Product> findAllByPrice_Currency(String currency);
-
     @Override
-    void delete(Product entity);
-
-    long countAllByPrice_Currency(String currency);
-
+    void deleteById(UUID uuid);
 
     List<Product> findAllByTitleLike(String titleRegex);
 

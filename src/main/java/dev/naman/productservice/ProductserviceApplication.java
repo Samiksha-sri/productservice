@@ -1,25 +1,7 @@
 package dev.naman.productservice;
 
-import dev.naman.productservice.inheritancedemo.joinedtable.Mentor;
-import dev.naman.productservice.inheritancedemo.joinedtable.MentorRepository;
-import dev.naman.productservice.inheritancedemo.joinedtable.User;
-import dev.naman.productservice.inheritancedemo.joinedtable.UserRepository;
-import dev.naman.productservice.models.Category;
-import dev.naman.productservice.models.Price;
-import dev.naman.productservice.models.Product;
-import dev.naman.productservice.repositories.CategoryRepository;
-import dev.naman.productservice.repositories.PriceRepository;
-import dev.naman.productservice.repositories.ProductRepository;
-import jakarta.transaction.Transactional;
-import org.hibernate.Hibernate;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @SpringBootApplication
 public class ProductserviceApplication {// implements CommandLineRunner {
@@ -28,24 +10,11 @@ public class ProductserviceApplication {// implements CommandLineRunner {
 //
 //
 //    private UserRepository userRepository;
-//    private final ProductRepository productRepository;
-//    private final CategoryRepository categoryRepository;
-//    private final PriceRepository priceRepository;
 //
-//    public ProductserviceApplication(@Qualifier("jt_mr") MentorRepository mentorRepository,
-//                                     @Qualifier("jt_ur") UserRepository userRepository,
-//                                     ProductRepository productRepository,
-//                                     CategoryRepository categoryRepository,
-//                                     PriceRepository priceRepository) {
-//        this.mentorRepository = mentorRepository;
-//        this.userRepository = userRepository;
-//        this.productRepository = productRepository;
-//        this.categoryRepository = categoryRepository;
-//        this.priceRepository = priceRepository;
-//    }
 
     public static void main(String[] args) {
         SpringApplication.run(ProductserviceApplication.class, args);
+
     }
 
 //    @Transactional()
